@@ -268,10 +268,11 @@ main {
     margin: 0px auto 50px auto;
     max-width: 550px;  
     text-align: center;
-    background-color:  rgb(180, 0, 0);
+    background-color:  rgb(233, 36, 36);
     padding: 10px;
     border-radius: 20px;
     color: white;
+    border: none;
 }
 
 .registro input {
@@ -279,18 +280,17 @@ main {
     background-color:  rgb(180, 0, 0);
     padding: 10px;
     border-radius: 20px;
-    
-    
-
 }
 
 .registro button {
     margin: 20px 15px 50px 25px;
     text-align: center;
-    background-color:  rgb(180, 0, 0);
+    background-color:  #ff6600;
     padding: 10px;
-    border-radius: 20px;
     color: white;
+    border: none;
+    border-radius: 15px;
+    
 }
 
 .formularioDatos {
@@ -298,8 +298,77 @@ main {
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
+    align-items: center;
+
     
 }
+
+.formularioDatos input {
+   background-color:  #ff6600;
+   width: 60%;
+   border: none;
+
+
+}
+
+.formularioDatos ::placeholder {
+   color: white;
+   
+    
+}
+
+/* Oculta el radio pero mantiene accesibilidad y funcionalidad */
+input[type="radio"][name="facturacion"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Botones estilo label */
+.seccionFacturacion .radio-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 2px solid #999;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #f9f9f9;
+    font-size: 16px;
+    color: #555;
+    transition: .3s ease;
+    user-select: none;
+}
+
+/* Hover */
+.seccionFacturacion .radio-btn:hover {
+    background: #e6e6e6;
+}
+
+/* Cuando está seleccionado */
+input[type="radio"]:checked + .radio-btn {
+    background: #ff6600;
+    color: white;
+    font-weight: bold;
+    border-color: #ff6600;
+}
+
+.seccionFacturacion textarea {
+    width: 60%;
+    height: 150px; 
+    text-align: center; 
+    resize: none; 
+    line-height: 150px; 
+}
+
+
+.seccionFacturacion textarea::placeholder {
+    text-align: center;
+    opacity: 0.7; 
+}
+
+
+
 
 
 

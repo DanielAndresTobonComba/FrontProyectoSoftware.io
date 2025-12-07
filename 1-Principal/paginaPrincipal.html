@@ -187,21 +187,19 @@
 
         <section class="seccionFacturacion">
 
-            <h4>Tipo de facturacion</h4>
+            <h3>Tipo de facturacion</h3>
 
             <input type="radio" name="facturacion" id="Fisica" value="Fisica">
-            <label for="facturacion">Fisica</label>
+            <label for="Fisica" class="radio-btn">Física</label>
 
             <input type="radio" name="facturacion" id="Electronica" value="Electronica">
-            <label for="facturacion">Electronica</label>
+            <label for="Electronica" class="radio-btn">Electrónica</label>
 
             <input type="radio" name="facturacion" id="Ninguna" value="Ninguna">
-            <label for="facturacion">Ninguna</label>
+            <label for="Ninguna" class="radio-btn">Ninguna</label>
             <br><br>
 
-            <label for="comentarios">Escriba sus comentarios</label>
-            <br>
-            <textarea name="comentarios" id="" cols="20" rows="10"></textarea>
+            <textarea placeholder="Comentarios" name="comentarios" id="" cols="20" rows="10"></textarea>
 
             <br><br>
             <button type="submit" onclick="enviarFormulario(event)">Enviar</button>
