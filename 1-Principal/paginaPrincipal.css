@@ -26,13 +26,23 @@ main {
     text-decoration: none;
     color: white;
     padding: 2px;
-    margin: 0px auto;
+    margin: 10px auto;
     background-color: rgb(233, 36, 36);
     border-radius: 5px;
     width: 50%;
-    height: 12%;
+    font-size: 22px;
+
 }
 
+.mayorAliado p {
+
+    width: 80%;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 24px;
+    line-height: 30px;
+
+}
 
 .separador {
   height: 60px; /* espacio */
@@ -80,7 +90,7 @@ main {
 .seccionServicios {
     margin: 30px 0px 0px 0px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 
 }
 
@@ -148,11 +158,12 @@ main {
 }
 
 .testimonio {
-    max-width: 600px;
+
     margin: 0 auto 30px;
     display: flex;
     align-items: center;
     gap: 20px;
+    width: 100%;
 }
 
 .icono-usuario {
