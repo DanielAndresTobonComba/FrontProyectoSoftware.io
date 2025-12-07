@@ -86,6 +86,14 @@ body {
 
 }
 
+#seccionMostrarDatos p  {
+
+}
+
+#seccionMostrarDatos span {
+    margin: 0px 15px;
+}
+
 /* menu de busqueda */
 
 .seccionMenu {
@@ -141,7 +149,7 @@ footer p {
 #seccionMostrarDatos button , #tarjetaCerrarSesion button , #tarjetaIniciarSesion button {
     width: 30%;
     margin: 0PX auto;
-    border-radius: 3px ;
+    border-radius: 10px ;
     border: none;
     background-color: rgb(229 171 97);
     height: 20px;
@@ -162,13 +170,12 @@ footer p {
     width: 50%;
     height: 20px;
     margin: 5px auto;
-    border-radius: 3px ;
+    border-radius: 10px ;
 }
 
 #botonesCerrarSesion{
     display: flex;
 }
-
 
 
 #entradaDatos {
@@ -178,6 +185,17 @@ footer p {
     flex-direction: column;
     width: 200px;
     margin: 20px auto;
+    border-radius: 15px;
+}
+
+#entradaDatos :placeholder-shown {
+
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: auto;
+    margin: 15px 20px 25px 15px;
+    border-radius: 15px;
 }
 
 #enlaceRegistro {

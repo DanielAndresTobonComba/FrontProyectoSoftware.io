@@ -80,9 +80,9 @@ document.write(`
     
     <div id="seccionMostrarDatos">
 
-        <h2>Datos del usuario</h2>
-        <p>Nombre:<span id="spanUsuario"></span></p>
-        <p>Contraseña: <span id="spanContraseña"></span></p> 
+        <h2>Usuario</h2>
+        <p><span id="spanUsuario"></span></p>
+        <p><span id="spanContraseña"></span></p> 
         <button onclick="cerrarDatos()">Ok</button>
 
     </div>
