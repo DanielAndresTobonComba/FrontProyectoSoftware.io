@@ -1,0 +1,631 @@
+
+/* seccion del buscador */
+.seccionBuscador {
+
+    display: flex;
+    height: 30px;
+    width: 100%;
+    padding: 1px;
+}
+
+.buscador {
+    width: 100%;
+    padding: 2px;
+}
+
+
+.logoLupa {
+
+    border-radius: 30px;
+    background-color: rgb(233, 36, 36);
+}
+
+
+.buscador input {
+    height: 25px;
+    width: 50%;
+
+}
+
+
+.buscador input[type="submit"] {
+    border-radius: 30px;
+    background-color: rgb(233, 36, 36);
+    border: none;
+    width: 30%;
+}
+
+
+/* seccion productos */
+
+.tituloAlqueria {
+    text-align: center;
+}
+
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.tarjeta {
+    border: solid rgb(230, 194, 129) 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+
+
+.textoTarjeta {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 25px;
+    padding: 5%;
+
+}
+
+.imagenTarjeta {
+    margin: 0px auto;
+    height: 100%;
+
+}
+
+.detalleProducto {
+    text-align: center;
+}
+
+.seccionBotonOrdenar {
+    display: flex;
+    justify-content: center;
+
+}
+
+.tarjeta button {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(218, 159, 83);
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
+    border: none;
+    margin-bottom: 10px;
+
+}
+
+.tarjeta .botonDetalles {
+    background-color: rgb(218, 159, 83);
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+    border-radius: 0px;
+    border: none;
+}
+
+.seccionBotones {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Factura/COTIZACION */
+
+#contenedorHistorial{
+    text-align: center;
+    background-color: rgb(247, 239, 239);
+    width: 80%;
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    border-radius: 20px;
+    padding: 20px 0px;
+}
+
+#factura , #facturaProductos{
+    
+    border: dotted 3px;
+    margin: 0px auto;
+    max-width: 200px;
+    text-align: left;
+}
+
+
+#factura p  , #facturaProductos p{
+   margin: 5px auto;
+}
+
+
+#botonMostrarFactura , #botonHistorial , #botonConfirmarCompra{
+    text-decoration: none;
+    color: white;
+    background-color:  rgb(233, 36, 36);
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+#contenedorHistorial button{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(233, 36, 36);
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin: 10px auto;
+}
+
+#nombreRegistro , #correo , #Telefono , #contraseñaRegistro {
+    background-color: rgb(229 171 97);
+    margin: 5px;
+    border-radius: 3px;
+    border: none;
+    color: black;
+    height: 25px;
+}
+
+
+
+@media (min-width:0px) and (max-width:320px) {
+
+
+    /* buscador */
+    
+    .buscador input {
+        width: 60%;
+    }
+
+    .buscador input[type="submit"] {
+
+        border-radius: 30px;
+        background-color: rgb(233, 36, 36);
+        border: none;
+        width: 30%;
+    }
+
+    /* main */
+
+    main {
+        padding: 5px;
+        width: 100%;
+        margin: 0px auto;
+        border-radius: 20px;
+
+    }
+
+    .productos {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .productos img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .facturaActual {
+        width: 100%;
+        height: 100px;
+
+    }
+
+
+    .seccionBotones p {
+        margin: 0px 2px;
+        height: 30px;
+        padding-top: 5px;
+    }
+
+    .tarjeta{
+        border: solid rgb(230, 194, 129) 10px;
+    }
+
+
+    .textoTarjeta {
+        font-size: 18px;
+        padding: 0px;
+    }
+
+    /* formulario */
+
+    form {
+        width: 100%;
+       
+    }
+
+    form h2  {
+        font-size: 18px;
+       
+    }
+
+    form input {
+        width: 80%;
+       
+    }
+
+    .seccionFacturacion textarea{
+        width: 80%;
+    }
+
+    .seccionFacturacion button{
+        width: 80%;
+        margin: 5px;
+    }
+
+    .registro {
+        padding: 0px;
+    }
+
+
+    /* footer */
+
+    footer p{
+        font-size: 12px;
+    }
+
+    .seccionRedesSociales{
+        flex-direction: column;
+    }
+
+    /* iniciar sesion *//* registro usuarios */
+
+    #tarjetaIniciarSesion , #seccionMostrarDatos , #seccionRegistro , #tarjetaCerrarSesion  {
+        left: 5%;
+        top: 18%;
+        width: 200px;
+        text-align: center;
+    
+    }
+
+    #tarjetaIniciarSesion input{
+        width: 150px;
+        margin: 0px auto;
+    }
+
+    #enlaceRegistro{
+        width: 200px;
+    }
+
+    /* facturas */
+
+    #seccionFacturas {
+        background-color: rgb(198, 197, 197 , 0.4);
+        text-align: center;
+        padding: 5px;
+        height: 450px;
+        
+    }
+
+    #seccionFacturas td{
+        font-size: 11px;
+    }
+
+    #seccionFacturas th{
+        font-size: 11px;
+    }
+
+    #seccionFacturas button{
+        font-size: 10px;
+    }
+
+    #seccionFacturas p{
+        font-size: 10px;
+    }
+
+    #seccionFacturas span{
+        font-size: 10px;
+    }
+
+    #seccionValorTotal{
+        display: flex;
+        justify-content: center;
+    }
+
+    #seccionValorTotal span{
+        margin: 10px 0px 0px 10px;
+    }
+
+    
+    table{
+        margin: 5px auto;
+    }
+
+}
+
+
+@media(min-width:321px) and (max-width:500px) {
+
+    .buscador input {
+        height: 25px;
+        width: 60%;
+
+    }
+
+    .buscador input[type="submit"] {
+        width: 20%;
+    }
+
+    .seccionMenu {
+        flex-direction: column;
+    }
+
+
+    main {
+        padding: 5px;
+        width: 100%;
+        margin: 0px auto;
+        border-radius: 20px;
+        
+
+    }
+
+
+    .productos img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .textoTarjeta {
+        font-size: 18px;
+        padding: 0px;
+    }
+
+    .seccionBotones p {
+        margin: 0px 2px;
+        height: 30px;
+        padding-top: 5%;
+    }
+
+    /* facturas */
+    #seccionFacturas {
+        background-color: rgb(198, 197, 197 , 0.4);
+        text-align: center;
+        padding: 5px;
+        height: 450px;
+        
+    }
+
+
+    #seccionValorTotal{
+        display: flex;
+        justify-content: center;
+    }
+
+
+    table{
+        margin: 5px auto;
+    }
+
+    #seccionValorTotal span{
+        margin: 17px 0px 0px 10px;
+    }
+
+
+
+
+}
+
+@media (min-width:501px) and (max-width:768px) {
+
+    
+
+    .buscador input {
+        height: 25px;
+        width: 60%;
+
+    }
+
+    .buscador input[type="submit"] {
+        width: 80px;
+    }
+
+    main {
+
+        padding: 20px;
+        width: 80%;
+        margin: auto;
+        border-radius: 20px;
+
+    }
+
+    .productos img {
+        width: 200px;
+        height: 200px;
+    }
+
+
+    .imagenTarjeta {
+        width: 40%;
+
+    }
+
+    .textoTarjeta {
+        font-size: 18px;
+        padding: 0px;
+    }
+
+    .seccionBotones p {
+        margin: 0px 2px;
+        height: 30px;
+        padding-top: 5%;
+    }
+
+
+    /* facturas */
+    #seccionFacturas {
+        background-color: rgb(198, 197, 197 , 0.4);
+        text-align: center;
+        padding: 5px;
+        height: 450px;
+        
+    }
+
+
+    #seccionValorTotal{
+        display: flex;
+        justify-content: center;
+    }
+
+
+    table{
+        margin: 5px auto;
+    }
+
+    #seccionValorTotal span{
+        margin: 17px 0px 0px 10px;
+    }
+
+}
+
+
+
+@media (min-width:769px) and (max-width:1250px) {
+
+
+    .buscador input {
+        width: 20%;
+    }
+
+    .buscador input[type="submit"] {
+
+        font-size: large;
+        width: 100px;
+
+    }
+
+
+    main {
+        padding: 20px;
+        width: 80%;
+        margin: 0px auto;
+        border-radius: 20px;
+
+    }
+
+    .productos img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .seccionBotones p {
+        margin: 0px 2px;
+        height: 30px;
+        padding-top: 5%;
+    }
+
+
+    .textoTarjeta {
+        font-size: 18px;
+        padding: 0px;
+    }
+
+    /* facturas */
+    #seccionFacturas {
+        background-color: rgb(198, 197, 197 , 0.4);
+        text-align: center;
+        padding: 5px;
+        height: 450px;
+        
+    }
+
+
+    #seccionValorTotal{
+        display: flex;
+        justify-content: center;
+    }
+
+
+    table{
+        margin: 5px auto;
+    }
+
+    #seccionValorTotal span{
+        margin: 17px 0px 0px 10px;
+    }
+
+
+}
+
+
+@media (min-width:1250px) {
+
+
+    .buscador input {
+        height: 25px;
+        width: 300px;
+
+    }
+
+
+
+    .buscador input[type="submit"] {
+        margin-left: 0%;
+        border-radius: 30px;
+        background-color: rgb(233, 36, 36);
+        border: none;
+        width: 10%;
+        font-size: 20px;
+    }
+
+
+    main {
+        padding: 50px;
+        border-radius: 20px;
+        margin-bottom: 200px;
+    }
+
+    .productos img {
+        width: 250px;
+        height: 250px;
+    }
+
+
+
+    .textoTarjeta {
+        font-size: 18px;
+        padding: 0px;
+    }
+
+    .seccionBotones p {
+        margin: 0px 2px;
+        height: 30px;
+        padding-top: 5%;
+    }
+
+
+    /* facturas */
+    #seccionFacturas {
+        background-color: rgb(198, 197, 197 , 0.4);
+        text-align: center;
+        padding: 5px;
+        height: 450px;
+        
+    }
+
+
+    #seccionValorTotal{
+        display: flex;
+        justify-content: center;
+    }
+
+
+    table{
+        margin: 5px auto;
+    }
+
+    #seccionValorTotal span{
+        margin: 17px 0px 0px 10px;
+    }
+
+    form {
+        font-size: 20px;
+        width: 40%;
+
+    }
+
+}

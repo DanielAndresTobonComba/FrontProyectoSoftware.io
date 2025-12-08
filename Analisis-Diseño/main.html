@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="../Recursos/JS/header.js"></script> -->
+    <link rel="stylesheet" href="form-prod.css">
+    <link rel="stylesheet" href="../4-facturacion/facturacion.css">
+    <link rel="stylesheet" href="../Recursos/Estilos CSS/header-footer.css">
+   
+</head>
+
+<body>
+
+    <div class="tituloEmpresa">
+        <p>Surtitiendas Ubate</p>
+    </div>
+    
+    
+    <header id="header">
+        <div class="seccionLogo ">
+            <div class="logo "></div>
+            
+            <div class="seccionInicio">
+                <div class="iniciarSesion ">
+                    <svg  class="simboloInicioSesion" onclick="mostrarDatosOSesion()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                      </svg>
+                    
+                </div>
+
+                <div class="registrarte ">
+                    <svg class="simboloInicioSesion" onclick="datosiniciarSesion()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M16 19h6" />
+                        <path d="M19 16v6" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                      </svg>
+                      
+                </div>
+
+                <div class="registrarte sin ">
+                    <svg  class="simboloInicioSesion" onclick="mostrarTarjeta()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-x" width="100%" height="80%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" />
+                        <path d="M22 22l-5 -5" />
+                        <path d="M17 22l5 -5" />
+                      </svg>
+                      
+                      
+                </div> 
+
+                
+            </div>
+            
+        </div>
+
+        <div class="seccionMenu">
+                <a href="../3-compra.alqueria/compra.html" class="opcionMenu">Surtitiendas</a>
+        </div>
+
+
+    </header>
+    <!-- Sección de inicio sesion etc -->
+
+    <div id="tarjetaIniciarSesion">
+
+        <h2 style="color: black;">Iniciar Sesion</h2>
+
+        <section id="entradaDatos">
+
+            <input id="usuarioInicioSesion" type="text" placeholder="Nombre de usuario">
+
+            <input id="contraseñaInicioSesion" type="text" placeholder="Contraseña">
+            
+            <a id=enlaceRegistro onclick="registro(this) , cerrarInicioSesion() " >Registrarse</a>
+
+        </section>
+        
+        <section id="botones">
+            <button onclick ="cerrarInicioSesion()" id="botonSalir">Cerrar</button>
+            <button onclick="iniciosesion()" id="botonIngresar" >Ingresar</button>
+        </section>
+    </div>
+    
+    <div id="seccionMostrarDatos">
+
+        <h2>Usuario</h2>
+        <p><span id="spanUsuario"></span></p>
+        <p><span id="spanContraseña"></span></p> 
+        <button onclick="cerrarDatos()">Ok</button>
+
+    </div>
+
+    <div id="seccionRegistro" style="visibility: hidden;">
+
+        <button onclick="salirRegistro()">Cerrar</button>
+        <button onclick="tomarDatosRegistro()">Enviar</button>
+        
+    </div>
+    
+    <div id="tarjetaCerrarSesion" style="visibility: hidden;" >
+
+        <h2>Desea cerrar sesion</h2>
+
+        <div id="botonesCerrarSesion">
+            <button onclick="cerrarTarjeta()">No</button>
+            <button onclick="cerrarSesion() , mostrarTarjeta()">Si</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="seccionBuscador">
+
+            <form  class="buscador">
+                <input type="submit" value="Buscar" >
+                <input type="text" name="q" id="busqueda" target="_blank" onkeyup="filtrar(this.value)" >
+            </form>
+            
+        </div>
+
+    <h2 class="tituloAlqueria">Nuestros productos</h2>
+
+    <main>
+
+        <section class="productos">
+
+        </section>
+
+        <div id="seccionFacturas">
+
+            <button onclick="mostrarFactura()" id="botonMostrarFactura">Generar Factura</button>
+
+            <!--  <button onclick="historialFacturas()" 
+            id="botonHistorial">Historial de facturas</button>-->
+
+            <div id="contenedorHistorial" style="visibility: hidden;">
+                <div id="factura">
+
+                </div>
+
+                <div id="facturaProductos">
+
+                </div>
+
+                
+
+                <button id="botonRestar" onclick="historialFacturas('restar')"><</button>
+                <button onclick="cerrarHistorial()">X</button>
+                <button id="botonSumar" onclick="historialFacturas('sumar')"> > </button>
+            </div>
+
+            <h4 style="color: red; visibility: hidden;" id="aviso">Debe iniciar sesion o registrarse para poder realizar
+                facturas</h4>
+
+            <section class="facturaActual" style="visibility: hidden;">
+
+                    <button id="botonConfirmarCompra" onclick="confirmarCompra()">Confirmar Compra</button>
+
+
+                <table border="0px" style="visibility: hidden;">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cant</th>
+                        <th>Valor</th>
+                        <th>Subtotal</th>
+                    </tr>
+
+                </table>
+
+                <section id="seccionValorTotal">
+                    <p>Total:</p>
+                    <span id="valorTotalCasilla">0</span>
+                </section>
+
+            </section>
+
+
+        </div>
+
+
+<!-- Seccion historial facturacion -->
+
+<h2 class="tituloFacturacion">Mis facturas</h2>
+
+    <section class="tablaFacturas">
+      <table id="tablaHistorial">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Número Factura</th>
+            <th>Cliente</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="listaFacturas">
+          <!-- El JS insertará las facturas aquí -->
+        </tbody>
+      </table>
+    </section>
+
+    </main>
+
+    <footer>
+
+        <div class="logoAlqueria footer">
+
+        </div>
+
+        <p>Tel:313312846</p>
+        <p>info.surtitiendasUbate</p>
+
+
+        <div class="seccionRedesSociales">
+
+            <div class="logos">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-x" width="50"
+                    height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                </svg>
+            </div>
+
+            <div class="logos">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="50"
+                    height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c0 -.249 1.51 -2.772 1.818 -4.013z" />
+                </svg>
+            </div>
+            <div class="logos">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="50"
+                    height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                </svg>
+            </div>
+            <div class="logos">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="50"
+                    height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                    <path
+                        d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                </svg>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="JS/form-prod.js"></script>
+    <script src="JS/obtenerProductosBack.js"></script>
+    <script src="JS/seccionFactura.js"></script>
+    <script src="JS/historialFacturasSurtitiendas.js"></script>
+    <script src="../Recursos/JS/inicioSesion.js"></script>
+    <script src="../Recursos/JS/nuevoInicioSesion.js"></script>
+    <script src="../Recursos/JS/registroUsuario.js"></script>
+
+
+
+</body>
+
+</html>
