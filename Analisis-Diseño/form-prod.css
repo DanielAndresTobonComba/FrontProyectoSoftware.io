@@ -169,6 +169,32 @@
     height: 25px;
 }
 
+/* Secion paginado */
+
+/* Contenedor del paginado */
+#paginacionFacturas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Botones del paginado */
+#paginacionFacturas button {
+    margin: 20px 15px 50px 25px;
+    text-align: center;
+    background-color: #ff6600;
+    padding: 10px 18px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+
 
 
 @media (min-width:0px) and (max-width:320px) {
