@@ -1,12 +1,15 @@
 // Archivo: historialFacturas.js
 
+let facturasGlobal = [];
+let paginaActual = 1;
+const FACTURAS_POR_PAGINA = 5;
+
 document.addEventListener("DOMContentLoaded", () => {
     const nombre = localStorage.getItem("nombre");
 
     console.log("Usuario logueado:", nombre);
 
     if (nombre) {
-        // Petición GET con el nombre en la URL
         fetch(`http://localhost:8080/api/facturaAlqueria/historialFacturas/${nombre}`)
             .then(res => {
                 if (!res.ok) throw new Error("Error en la petición " + res.status);
@@ -15,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 console.log("Facturas recibidas:", data);
 
-                // Renderizar en la tabla
-                renderTablaFacturas(data);
+                facturasGlobal = data; 
+                renderTablaFacturas();
             })
             .catch(err => {
                 console.error("Error obteniendo historial:", err);
@@ -26,11 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function renderTablaFacturas(facturas) {
+function renderTablaFacturas() {
     const tbody = document.querySelector("#tablaHistorial tbody");
-    tbody.innerHTML = ""; // Limpiar tabla antes de llenarla
+    tbody.innerHTML = ""; 
 
-    facturas.forEach(factura => {
+    const inicio = (paginaActual - 1) * FACTURAS_POR_PAGINA;
+    const fin = inicio + FACTURAS_POR_PAGINA;
+    const facturasPagina = facturasGlobal.slice(inicio, fin);
+
+    facturasPagina.forEach(factura => {
         const fila = document.createElement("tr");
         fila.classList.add("filaFactura");
 
@@ -44,7 +51,6 @@ function renderTablaFacturas(facturas) {
 
         tbody.appendChild(fila);
 
-        // fila detalles (oculta al inicio)
         const filaDetalles = document.createElement("tr");
         filaDetalles.classList.add("filaDetalles", "oculto");
 
@@ -80,8 +86,8 @@ function renderTablaFacturas(facturas) {
         tbody.appendChild(filaDetalles);
     });
 
-    // Activar botones
     activarBotonesDetalles();
+    renderPaginacion();
 }
 
 function activarBotonesDetalles() {
@@ -92,8 +98,52 @@ function activarBotonesDetalles() {
             const filaFactura = btn.closest("tr");
             const filaDetalles = filaFactura.nextElementSibling;
 
+            document.querySelectorAll(".filaDetalles:not(.oculto)").forEach(detalle => {
+                if (detalle !== filaDetalles) {
+                    detalle.classList.add("oculto");
+                    const botonOtro = detalle.previousElementSibling.querySelector(".btnDetalles");
+                    if (botonOtro) botonOtro.textContent = "Detalles ▼";
+                }
+            });
+
             filaDetalles.classList.toggle("oculto");
             btn.textContent = filaDetalles.classList.contains("oculto") ? "Detalles ▼" : "Detalles ▲";
         });
     });
+}
+
+/* 🔹 SOLO SE MODIFICÓ ESTO */
+function renderPaginacion() {
+    const contenedorPag = document.getElementById("paginacion");
+    if (!contenedorPag) return;
+
+    contenedorPag.innerHTML = "";
+
+    const totalPaginas = Math.ceil(facturasGlobal.length / FACTURAS_POR_PAGINA);
+
+    // Botón anterior <
+    const btnPrev = document.createElement("button");
+    btnPrev.textContent = "<";
+    btnPrev.disabled = paginaActual === 1;
+    btnPrev.addEventListener("click", () => {
+        paginaActual--;
+        renderTablaFacturas();
+    });
+    contenedorPag.appendChild(btnPrev);
+
+    // Número de página actual SOLO UNO
+    const indicador = document.createElement("span");
+    indicador.textContent = ` ${paginaActual} `;
+    indicador.style.margin = "0 10px";
+    contenedorPag.appendChild(indicador);
+
+    // Botón siguiente >
+    const btnNext = document.createElement("button");
+    btnNext.textContent = ">";
+    btnNext.disabled = paginaActual === totalPaginas;
+    btnNext.addEventListener("click", () => {
+        paginaActual++;
+        renderTablaFacturas();
+    });
+    contenedorPag.appendChild(btnNext);
 }

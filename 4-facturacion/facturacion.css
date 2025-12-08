@@ -1,3 +1,10 @@
+
+main {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding-bottom: 250px;
+}
+
 .tituloFacturacion {
   background-color: rgb(233, 36, 36);
   color: white;
@@ -67,4 +74,32 @@
 
 .oculto {
   display: none;
+}
+
+
+
+/* Paginado */
+
+/* Contenedor del paginado */
+#paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Botones del paginado */
+#paginacion button {
+    text-align: center;
+    background-color: #ff6600;
+    padding: 10px 18px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+#paginacion span {
+    font-size: 20px;
 }

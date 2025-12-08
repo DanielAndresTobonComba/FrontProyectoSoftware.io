@@ -75,6 +75,9 @@ function iniciosesion() {
                 spanContraseña.textContent = contraseñaIS;
 
                 console.log("Inicio de sesión exitoso");
+
+                // 🔄 Recargar la pagina
+                location.reload();
             } 
             else {
                 inputNombre.value = "El usuario no existe";
@@ -87,3 +90,13 @@ function iniciosesion() {
     }
 }
 
+/* Cerrar sesión */
+function cerrarSesion() {
+    localStorage.removeItem("nombre");
+    localStorage.removeItem("contraseña");
+
+    console.log("Sesión cerrada");
+
+    // 🔄 Recargar la pagina
+    location.reload();
+}
