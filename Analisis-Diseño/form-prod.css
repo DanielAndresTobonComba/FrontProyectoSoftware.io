@@ -194,6 +194,10 @@
     transition: transform 0.2s ease-in-out, background-color 0.2s;
 }
 
+#paginacionFacturas button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
 
 
 

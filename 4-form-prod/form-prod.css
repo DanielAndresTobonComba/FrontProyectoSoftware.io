@@ -170,6 +170,36 @@
 }
 
 
+/* Paginacion */
+
+#paginacionFacturas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#paginacionFacturas button {
+    margin: 20px 15px 50px 25px;
+    text-align: center;
+    background-color: #ff6600;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    align-items: center;
+    
+}
+
+#paginacionFacturas button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+
 
 @media (min-width:0px) and (max-width:320px) {
 
