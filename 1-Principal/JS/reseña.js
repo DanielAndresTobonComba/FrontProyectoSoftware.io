@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/resenas", {  // <-- CAMBIAR SEGÚN TU ENDPOINT
+      const response = await fetch("http://localhost:8080/api/resena", {  // <-- CAMBIAR SEGÚN TU ENDPOINT
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)

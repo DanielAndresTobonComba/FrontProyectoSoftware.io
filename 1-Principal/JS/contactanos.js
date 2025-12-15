@@ -1,6 +1,5 @@
 function enviarFormulario(event) {
-
-    // Evita que la página se reinicie por defecto
+    // Evita que la página se recargue
     if (event) event.preventDefault();
 
     console.log("ENVIANDO FORMULARIO...");
@@ -14,7 +13,7 @@ function enviarFormulario(event) {
     const comentarios = document.querySelector("textarea");
     const tipoFacturacion = document.querySelector('input[name="facturacion"]:checked');
 
-    // Guardamos placeholders originales si no existen
+    // Guardar placeholders originales si no existen
     document.querySelectorAll("input[type='text']").forEach(input => {
         if (!input.dataset.placeholderOriginal) {
             input.dataset.placeholderOriginal = input.placeholder;
@@ -30,7 +29,7 @@ function enviarFormulario(event) {
 
     let valido = true;
 
-    // VALIDACIÓN DE CAMPOS VACÍOS
+    // Validación de campos vacíos
     const inputs = [nombre, apellidos, correo, direccion, telefono];
     inputs.forEach(input => {
         if (!input.value.trim()) {
@@ -49,7 +48,7 @@ function enviarFormulario(event) {
 
     if (!valido) {
         console.log("VALIDACIÓN FALLIDA");
-        return; // ❗ NO SE ENVÍA FETCH si falta un dato
+        return; // ❗ No se envía fetch si falta un dato
     }
 
     // JSON para el backend
@@ -65,7 +64,7 @@ function enviarFormulario(event) {
 
     console.log("JSON listo para enviar:", data);
 
-    const url = "http://localhost:8080/api/contacto"; // cambia según tu backend
+    const url = "http://localhost:8080/api/contacto";
 
     // FETCH al backend
     fetch(url, {
@@ -80,15 +79,17 @@ function enviarFormulario(event) {
     .then(res => {
         console.log("Respuesta del backend:", res);
 
-        if (res.enviado === true) {
+        // Validación según la respuesta del backend
+        if (res.message === "contacto enviado") {
             alert("Mensaje enviado con éxito!");
-            document.querySelector("form").reset();  // ✔️ Solo aquí se limpia el formulario
+            document.querySelector("form").reset();
         } else {
             alert("No se pudo enviar el formulario.");
         }
     })
     .catch(error => console.error("ERROR FETCH:", error));
 }
+
 
 
 
